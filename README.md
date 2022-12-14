@@ -1,2 +1,2 @@
 # -----------
-Einfachste Python Projekte 
+Einfach Python-Projekte 
