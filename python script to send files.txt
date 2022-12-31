@@ -1,0 +1,54 @@
+#########################################################################
+#This code to the person who will send the file
+#######################################################################
+
+import socket
+
+# Create the server socket
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Bind the socket to an IP address and port
+server_socket.bind(("192.168.178.22", 8496))
+
+# Listen for incoming connections
+server_socket.listen()
+
+# Accept an incoming connection
+client_socket, client_address = server_socket.accept()
+print(f'Connected to {client_address[0]}:{client_address[1]}')
+
+# Open the file that you want to send
+with open(r"C:\Users\Moham\Desktop\pp.txt", 'rb') as file:
+    # Send the file over the socket
+    client_socket.sendall(file.read())
+
+# Close the socket
+
+client_socket.close()
+
+
+								 
+##########################################################
+#give this code to the person who will receive it ⬇️⬇️ and then remove it 
+##########################################################
+
+import socket
+
+# Create the client socket
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Connect to the server
+client_socket.connect(("192.168.178.22", 8496))
+
+# Receive the file and save it to disk
+with open('received_file.txt', 'wb') as file:
+    while True:
+        data = client_socket.recv(1024)
+        if not data:
+            break
+        file.write(data)
+
+# Close the socket
+client_socket.close()
+
+
