@@ -53,6 +53,7 @@ def add_new_users():
 
 
 def fetch_all_data():
+    textbox.delete(1.0, END)
     curses.execute("SELECT * from users0")
     result = curses.fetchall()
     data = ""
