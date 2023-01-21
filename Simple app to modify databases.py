@@ -85,7 +85,10 @@ def update_user():
 
     botton_ok = Button(text="Save", command=save)
     botton_ok.place(x=10, y=330, width=175, height=45)
-
+    
+  
+def clear():
+    textbox.delete(1.0, END)
 
 
 textbox = Text(win)
@@ -108,6 +111,9 @@ password.place(x=150,y=50,width=200,height=25)
 
 bottonx = Button(text="Add",command=add_new_user)
 bottonx.place(x=90,y=80,width=75,height=35)
+
+bottonxc = Button(text="Clear",command=clear)
+bottonxc.place(x=170,y=80,width=75,height=35)
 
 botton1 = Button(text="Fetch",command=fetch_all_data)
 botton1.place(x=10,y=80,width=75,height=35)
