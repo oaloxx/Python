@@ -6,7 +6,7 @@ from tkinter import *
 v = Tk()
 v.geometry("600x400")
 v.config(bg="#28343B")
-#v.resizable(False,False)
+v.resizable(False,False)
 
 
 def wifi():
