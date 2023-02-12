@@ -12,7 +12,7 @@ v.resizable(False,False)
 l1 = Label(v,text="You WIFI name :",font=(1)).place(x=0,y=10)
 e1 = Entry(v,font=(1),width=35)
 e1.place(x=180,y=11)
-l2 = Label(v,text="Please make sure that you entered the name of your Wifi network correctly").place(x=0,y=45)
+l2 = Label(v,text="Enter the name of the Wi-Fi that you are connected to ").place(x=0,y=45)
 
 
 def wifi():
