@@ -9,8 +9,14 @@ v.config(bg="#28343B")
 v.resizable(False,False)
 
 
+l1 = Label(v,text="You WIFI name :",font=(1)).place(x=0,y=10)
+e1 = Entry(v,font=(1),width=35)
+e1.place(x=180,y=11)
+l2 = Label(v,text="Please make sure that you entered the name of your Wifi network correctly").place(x=0,y=45)
+
+
 def wifi():
-    d = """netsh wlan show profile name="FRITZ!Box 7590 HE" key=clear"""
+    d = f"""netsh wlan show profile name="{e1.get()}" key=clear"""
     p = os.popen(d)
     s = p.read()
     p.close()
@@ -37,8 +43,6 @@ def wifi():
         la = Label(v,text=content,font=3)
         la.place(x=-10,y=150)
 
-        pa = Frame(width=205,height=250,bg="#28343B")
-        pa.place(x=0,y=0)
 
         la = Label(v, text="Your wifi pass is :", font=(5))
         la.place(x=235, y=100)
@@ -47,9 +51,11 @@ def wifi():
     os.remove(r"C:\ou.txt")
 
 
+
 get = Button(v,text="Get",width=30,height=3,command=wifi)
 get.place(x=200,y=300)
 
 
 v.mainloop()
+
 
