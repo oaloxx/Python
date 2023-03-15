@@ -52,7 +52,7 @@ stop_button.place(x=0,y=130)
 choose_button.place(x=0,y=195)
 
 
-aso = Label(root,text="Music folder in not selected")
+aso = Label(root,text="Music folder is not selected")
 aso.place(x=270,y=110)
 
 root.mainloop()
