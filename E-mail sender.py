@@ -1,32 +1,32 @@
-print('from email.message import EmailMessage')
-print('import ssl')
-print('import smtplib')
-print('')
-print('email_sender = "YOUR EMAIL"')
-print('email_password = "YORE PASSWORD"')
-print('email_receiver = "TO ?",email_sender')
-print('')
-print('subject = "hallo"')
-print('body = """')
-print('hello !')
-print('')
-print('I LOVE YOU')
-print('"""')
-print('')
-print('')
-print('em = EmailMessage()')
-print('em["From"] = email_sender')
-print('em["To"] = email_receiver')
-print('em["Subject"] = subject')
-print('em.set_content(body)')
-print('')
-print('')
-print('with open("PATH FILE", "rb") as f:')
-print('file_data = f.read()')
-print('em.add_attachment(file_data, maintype="application", subtype="FILE TYPE", filename="FILE NAME")')
-print('')
-print('context = ssl.create_default_context()')
-print('')
-print('with smtplib.SMTP_SSL("smtp.gmail.com",465,context=context) as smtp:')
-print('smtp.login(email_sender,email_password)')
-print('smtp.sendmail(email_sender,email_receiver,em.as_string())')
+from email.message import EmailMessage
+import ssl
+import smtplib
+
+email_sender = "YOUR EMAIL"
+email_password = "YORE PASSWORD"
+email_receiver = "TO ?",email_sender
+
+subject = "hallo"
+body = """
+hello !
+
+I LOVE YOU
+"""
+
+
+em = EmailMessage()
+em["From"] = email_sender
+em["To"] = email_receiver
+em["Subject"] = subject
+em.set_content(body)
+
+
+with open("PATH FILE", "rb") as f:
+    file_data = f.read()
+    em.add_attachment(file_data, maintype="application", subtype="FILE TYPE", filename="FILE NAME")
+
+context = ssl.create_default_context()
+
+with smtplib.SMTP_SSL("smtp.gmail.com",465,context=context) as smtp:
+    smtp.login(email_sender,email_password)
+    smtp.sendmail(email_sender,email_receiver,em.as_string())
