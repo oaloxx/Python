@@ -4,7 +4,7 @@ from datetime import date
 from tkinter import *
 import sqlite3
 
-class Database:
+class Database: 
     def __init__(self, filename):
         self.filename = filename
         self.con = sqlite3.connect(self.filename)
