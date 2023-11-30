@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einheitenumrechner</title>
+
+    <style>
+        body {
+            background: #212F3D;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #unitContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        #toUnit1, #toUnit2 {
+            width: 90%;
+            height: 50px;
+            margin-top: 20px;
+            border-radius: 30px;
+            background: #D0D3D4;
+        }
+
+        #input {
+            width: 90%;
+            height: 50px;
+            border: 1px solid #ccc;
+            outline: none;
+            color: #fff;
+            background: transparent;
+            font-size: large;
+        }
+
+        #button {
+            width: 90%;
+            height: 50px;
+            margin-top: 20px;
+            background: #0B5345;
+            font-size: large;
+            color: #fff;
+            outline: none;
+        }
+
+        #result{
+            color: #ccc;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="unitContainer">
+        <input id="input">
+        <select id="toUnit1">
+            <option value="meter">Meter</option>
+            <option value="kilometer">Kilometer</option>
+        </select>
+
+        <select id="toUnit2">
+            <option value="meter">Meter</option>
+            <option value="kilometer">Kilometer</option>
+        </select>
+        <button id="button" onclick="rechn()">Umrechnen</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        var inputNumber = document.getElementById("input");
+        var unit1 = document.getElementById("toUnit1");
+        var unit2 = document.getElementById("toUnit2");
+        var resultElement = document.getElementById("result");
+
+        function rechn() {
+            if (unit1.value === "meter" && unit2.value === "kilometer") {
+                var result = inputNumber.value / 1000;
+                resultElement.textContent = "Result: " + result + " Kilometer";
+            }
+
+            else if (unit2.value === "meter" && unit1.value === "kilometer") {
+                var result1 = inputNumber.value * 1000;
+                resultElement.textContent = "Result: " + result1 + " meter";
+            }
+
+            else if (unit1.value === "meter" && unit1.value === "meter") {
+                var result2 = inputNumber.value;
+                resultElement.textContent = "Result: " + result2 + " meter";
+            }
+
+            else if (unit2.value === "kilometer" && unit2.value === "kilometer") {
+                var result3 = inputNumber.value;
+                resultElement.textContent = "Result: " + result3 + " Kilometer";
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>
